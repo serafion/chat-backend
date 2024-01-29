@@ -1,15 +1,13 @@
 package com.chat.backend.message_receiver;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-public enum MessageStatus {
+@AllArgsConstructor
+enum MessageStatus {
     PARSED("success"),
     NOT_PARSED("failed");
 
     private final String status;
-
-    MessageStatus(String status) {
-        this.status = status;
-    }
 }
