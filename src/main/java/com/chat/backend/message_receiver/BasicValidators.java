@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum BasicValidators {
+enum BasicValidators {
 
     MESSAGE_LENGTH_OK(messageDto -> messageDto.message().length() < 255),
     USER_FROM_NOT_NULL(messageDto -> messageDto.fromUser() != null),
