@@ -2,24 +2,26 @@ package com.chat.backend.message_receiver;
 
 import com.chat.backend.message_receiver.dto.MessageDto;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Vector;
 
 class MessageRepositoryStub implements MessageRepository{
 
-    List<MessageDto> repository = new ArrayList<>();
+    private final List<MessageDto> repository = new Vector<>();
     @Override
     public void addMessage(MessageDto messageDto) {
         repository.add(messageDto);
     }
 
     @Override
-    public void removeMessage(MessageDto messageDto) {
-       repository.remove(messageDto);
+    public void removeMessage(Collection<MessageDto> messageDtos) {
+       List<MessageDto> forRemoval = List.copyOf(messageDtos);
+       forRemoval.forEach(repository::remove);
     }
 
     @Override
-    public MessageDto getMessages(String from, String to) {
-        return null;
+    public Collection<MessageDto> getMessages() {
+        return List.copyOf(repository);
     }
 }
