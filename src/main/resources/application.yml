@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      username: pz
+      password: pz
+      host: localhost
+      port: 27017
+      database: chat-app
+      authentication-database: admin
+  server:
+    port: 8088
