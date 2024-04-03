@@ -36,4 +36,10 @@ public class UserController {
     public ResponseEntity<List<User>> findConnectedUsers(){
         return ResponseEntity.ok(service.onlineUsers());
     }
+
+    @MessageMapping("/simpleuser")
+    @SendTo("/user/topic")
+    public SimpleUser getSimpleUser(SimpleUser user){
+        return new SimpleUser(user.getName()+" was logged in");
+    }
 }
